@@ -17,7 +17,7 @@ const PORT = 1122
 const server=http.createServer((req,res)=>{
     // setHeader to set the content-type header
     res.setHeader('Content-Type', 'text/html')
-
+    console.log(req.method);
     const resUrl = url.parse(req.url).pathname;
 
     // reading the file or data from the index html file
@@ -31,7 +31,7 @@ const server=http.createServer((req,res)=>{
     }else if(resUrl ==="/about"){
         data=fileSystem.readFileSync(__dirname+'/about.html',(encoding="utf8")) 
     }
-    console.log(resUrl);
+    // console.log(resUrl);
     
     // sending the data to the server
     res.write(data)
